@@ -73,34 +73,34 @@ const App = () => {
 
     return (
         <>
-            <Header
-                handleCart={() => setCartOpen(true)}
-                orderLen={order.length}
+        <Header
+            handleCart={() => setCartOpen(true)}
+            orderLen={order.length}
+        />
+        <Container
+            sx={{
+                mt: '1rem'
+            }}
+        >
+            <Search
+                value={search}
+                onChange={handleChange}
             />
-            <Container
-                sx={{
-                    mt: '1rem'
-                }}
-            >
-                <Search
-                    value={search}
-                    onChange={handleChange}
-                />
-                <GoodsList
-                    goods={products}
-                    setOrder={addToOrder}
-                />
-            </Container>
-            <Basket
-                order={order}
-                removeFromOrder={removeFromOrder}
-                cartOpen={isCartOpen}
-                closeCart={() => setCartOpen(false)}
+            <GoodsList
+                goods={products}
+                setOrder={addToOrder}
             />
-            <Snack
-                isOpen={isSnackOpen}
-                handleClose={() => setSnackOpen(false)}
-            />
+        </Container>
+        <Basket
+            order={order}
+            removeFromOrder={removeFromOrder}
+            cartOpen={isCartOpen}
+            closeCart={() => setCartOpen(false)}
+        />
+        <Snack
+            isOpen={isSnackOpen}
+            handleClose={() => setSnackOpen(false)}
+        />
         </>
     );
 }

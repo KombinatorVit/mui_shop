@@ -29,19 +29,19 @@ const Basket = (props) => {
                     <ListItem>Корзина пуста!</ListItem>
                 ) : (
                     <>
-                        {order.map((item) => (
-                            <BasketItem key={item.name} removeFromOrder={removeFromOrder} {...item} />
-                        ))}
-                        <Divider />
-                        <ListItem>
-                            <Typography sx={{fontWeight: 700}}>
-                                Общая стоимость:{' '}
-                                {order.reduce((acc, item) => {
-                                    return acc + item.price * item.quantity;
-                                }, 0)}{' '}
-                                рублей.
-                            </Typography>
-                        </ListItem>
+                    {order.map((item) => (
+                        <BasketItem key={item.name} removeFromOrder={removeFromOrder} {...item} />
+                    ))}
+                    <Divider />
+                    <ListItem>
+                        <Typography sx={{fontWeight: 700}}>
+                            Общая стоимость:{' '}
+                            {order.reduce((acc, item) => {
+                            return acc + item.price * item.quantity;
+                            }, 0)}{' '}
+                            рублей.
+                        </Typography>
+                    </ListItem>
                     </>
                 )}
 
