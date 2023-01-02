@@ -1,9 +1,15 @@
-import { Grid } from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 
 import GoodsItem from './GoodsItem';
+import {GoodsType} from "../data/goods";
 
-const GoodsList = (props) => {
-    const { goods, setOrder } = props;
+type GoodsList = {
+    goods: GoodsType[]
+    setOrder: (goodsItem: any) => void
+}
+
+const GoodsList = (props: GoodsList) => {
+    const {goods, setOrder} = props;
 
     return (
         <Grid container spacing={2}>

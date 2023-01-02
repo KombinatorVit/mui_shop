@@ -1,7 +1,12 @@
-import { AppBar, Badge, IconButton, Toolbar, Typography } from "@material-ui/core"
-import { ShoppingBasket } from "@material-ui/icons"
+import {AppBar, Badge, IconButton, Toolbar, Typography} from "@material-ui/core"
+import {ShoppingBasket} from "@material-ui/icons"
 
-function Header({handleCart, orderLen}) {
+type HeaderPropsType = {
+    handleCart: () => void
+    orderLen: number
+}
+
+function Header({handleCart, orderLen}: HeaderPropsType) {
     return (
         <AppBar position="static">
             <Toolbar>
@@ -10,7 +15,7 @@ function Header({handleCart, orderLen}) {
                     component="span"
                     sx={{flexGrow: 1}}
                 >
-                    MUI Shop
+                    MY MUI Shop
                 </Typography>
                 <IconButton
                     color="inherit"
@@ -20,7 +25,7 @@ function Header({handleCart, orderLen}) {
                         color="secondary"
                         badgeContent={orderLen}
                     >
-                        <ShoppingBasket />
+                        <ShoppingBasket/>
                     </Badge>
                 </IconButton>
             </Toolbar>

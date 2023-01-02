@@ -1,11 +1,17 @@
 import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@material-ui/core";
 import { ShoppingBasket } from "@material-ui/icons";
 import BasketItem from "./BasketItem";
-
-const Basket = (props) => {
+import {OrderType} from "./App";
+type BasketPropsType = {
+    cartOpen: boolean
+    closeCart:()=> void
+    order: OrderType[]
+    removeFromOrder: (goodsItem: string)=> void
+}
+const Basket = (props:BasketPropsType) => {
     const {
         cartOpen,
-        closeCart = Function.prototype,
+        closeCart,
         order = [],
         removeFromOrder
     } = props;
@@ -39,7 +45,7 @@ const Basket = (props) => {
                             {order.reduce((acc, item) => {
                             return acc + item.price * item.quantity;
                             }, 0)}{' '}
-                            рублей.
+                            грн.
                         </Typography>
                     </ListItem>
                     </>

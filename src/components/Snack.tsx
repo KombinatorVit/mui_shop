@@ -1,6 +1,10 @@
 import { Alert, Snackbar } from "@material-ui/core"
 
-function Snack({isOpen, handleClose = Function.prototype}) {
+type SnackPropsType = {
+    isOpen:boolean
+    handleClose:()=> void
+}
+function Snack({isOpen, handleClose}: SnackPropsType) {
     return (
         <Snackbar
             open={isOpen}

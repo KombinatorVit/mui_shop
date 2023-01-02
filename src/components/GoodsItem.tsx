@@ -1,8 +1,16 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@material-ui/core";
+import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography} from "@material-ui/core";
 
 
-const GoodsItem = (props) => {
-    const { name, price, poster, setOrder } = props;
+type GoodsItemProps = {
+    id:string
+    name: string
+    price: number
+    poster: string
+    setOrder: ({}) => void
+}
+
+const GoodsItem = (props: GoodsItemProps) => {
+    const {name, price, poster, setOrder} = props;
 
     return (
         <Grid item xs={12} md={4}>
@@ -16,7 +24,7 @@ const GoodsItem = (props) => {
                     component="img"
                     alt={name}
                     title={name}
-                    sx={{ height: 140 }}
+                    sx={{height: 140}}
                 />
                 <CardContent>
                     <Typography
@@ -25,7 +33,7 @@ const GoodsItem = (props) => {
                     >
                         {name}
                     </Typography>
-                    <Typography variant="body1">Цена: {price} руб.</Typography>
+                    <Typography variant="body1">Цена: {price} грн.</Typography>
                 </CardContent>
                 <CardActions>
                     <Button

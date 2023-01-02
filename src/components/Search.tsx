@@ -1,6 +1,10 @@
 import { TextField } from "@material-ui/core";
-
-const Search = (props) => {
+import {ChangeEvent} from "react";
+type SearchPropsType = {
+    onChange: (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=> void
+    value: string
+}
+const Search = (props: SearchPropsType) => {
     const { onChange, value } = props;
 
     return <TextField
